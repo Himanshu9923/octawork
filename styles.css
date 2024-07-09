@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #0ee103;
+    padding: 1em 0;
+}
+
+
+.navbar-brand {
+    color: #0e110e;
+    font-size: 1.5em;
+    margin-left: 1em;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.hero {
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.form-section {
+    margin: 2em;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: auto;
+}
+
+label, input, button {
+    margin: 0.5em 0;
+}
+
+button {
+    padding: 0.5em;
+    background-color: #ff0000;
+    color: rgb(255, 255, 255);
+    border: none;
+   
+}
+h1{
+    background-image: url('https://htmlcolorcodes.com/assets/images/colors/neon-green-color-solid-background-1920x1080.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 20px;
+}
+p{
+ color: #ff0000;
+}
+h3{
+    color: #ffffff;
+    background-color: #0e110e;
+}
+.video-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+.video-container iframe {
+    flex: 1;
+}
+.video-container ul {
+    flex: 1;
+    list-style-type: disc;
+    padding-left: 20px;
+}
+

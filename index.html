@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page of spotify</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<header>
+    <div class="navbar-brand">Spotify</div>
+   </header>
+<body> 
+   
+    <main>
+
+        <section class="hero">
+            <h1>Welcome to the spotify world</h1>
+            <p>Sign up and Win a Free spotify 1 month Free subcription!</p>
+            <button onclick="showAlert()">Click Me</button>
+        </section>
+        <section class="form-section">
+            <h2>Sign Up</h2>
+            <form action="process.php" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main><br><br>
+    <h3><em>Grab the premium membership of Spotify and gift it to your close ones</em></h3>
+    <div class="video-container">
+      
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/LsCJ2VZKr8w?si=wfYCcnApG0NGlUOl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <ul>
+            <strong><li>The Spotify members of the family will enjoy ad-free music.</li></strong><br>
+            <strong><li>Access to exclusive content and playlists.</li></strong><br>
+            <strong><li>High-quality audio streaming.</li></strong><br>
+        </ul>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
