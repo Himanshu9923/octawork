@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List Task Manager</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        
+        * {
+            font-family: "Poppins", sans-serif;
+            font-style: normal;
+        }
+
+        .navbar {
+            border: 2px solid black;
+            background-color: rgb(255, 128, 0);
+            display: flex;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            gap: 22px;
+        }
+        a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+        }
+        .exit1 {
+            position: absolute;
+            right: 50px; 
+        }
+        .card {
+            background-color: rgb(255, 128, 0);
+            position: absolute;
+            border: 2px solid black;
+            width: 433px;
+            height: 555px;
+            left: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .label1 {
+            background-color: rgb(255, 255, 255);
+            margin-bottom: 20px;
+        }
+        body {
+            background-color: rgb(120, 40, 232);
+        }
+        .content {
+            color: rgb(0, 0, 0);
+        }
+        .task-list {
+            width: 100%;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .task-item {
+            display: flex;
+            justify-content: space-between;
+            background-color: #fff;
+            border: 1px solid #000;
+            margin: 5px 0;
+            padding: 5px 10px;
+        }
+        .task-item input[type="text"] {
+            border: 1px solid black;
+            width: 80%;
+            background-color: cornflowerblue;
+        }
+        .task-item.completed {
+            background-color: #c8e6c9;
+            text-decoration: line-through; }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/">About</a></li>
+                <li><a href="/">products</a></li>
+                <li><a href="/">Contact</a></li>
+                <li class="exit1"><a href="/">Exit</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content">
+        <p>This is a to-do task manager web page!</p>
+    </div>
+    <div class="card">
+        <label class="label1" for="input1">
+            <input type="text" id="taskInput" placeholder="Enter a new task">&nbsp;  &nbsp;
+            <button id="saveTaskBtn">Save</button>
+        </label>
+        <div class="task-list" id="taskList"></div>
+    </div>
+
+    <script>
+        document.getElementById('saveTaskBtn').addEventListener('click', addTask);
+
+        function addTask() {
+            const taskInput = document.getElementById('taskInput');
+            const taskList = document.getElementById('taskList');
+
+            if (taskInput.value.trim() !== '') {
+                const taskItem = document.createElement('div');
+                taskItem.classList.add('task-item');
+
+                const taskText = document.createElement('input');
+                taskText.type = 'text';
+                taskText.value = taskInput.value;
+                taskText.setAttribute('readonly', 'readonly');
+
+                const editButton = document.createElement('button');
+                editButton.innerText = 'Edit';
+                editButton.classList.add('edit');
+                editButton.addEventListener('click', function() {
+                    if (editButton.innerText.toLowerCase() === "edit") {
+                        taskText.removeAttribute('readonly');
+                        taskText.focus();
+                        editButton.innerText = 'Save';
+                    } else {
+                        taskText.setAttribute('readonly', 'readonly');
+                        editButton.innerText = 'Edit';
+                    }
+                });
+
+                const deleteButton = document.createElement('button');
+                deleteButton.innerText = 'Delete';
+                deleteButton.classList.add('delete');
+                deleteButton.addEventListener('click', function() {
+                    taskList.removeChild(taskItem);
+                });
+
+                const completeButton = document.createElement('button');
+                completeButton.innerText = 'Complete';
+                completeButton.classList.add('complete');
+                completeButton.addEventListener('click', function() {
+                    taskItem.classList.toggle('completed');
+                });
+
+                taskItem.appendChild(taskText);
+                taskItem.appendChild(editButton);
+                taskItem.appendChild(completeButton);
+                taskItem.appendChild(deleteButton);
+
+                taskList.appendChild(taskItem);
+
+                taskInput.value = '';
+            }
+        }
+    </script>
+</body>
+</html>
